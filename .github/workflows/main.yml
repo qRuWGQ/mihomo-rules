@@ -31,18 +31,18 @@ jobs:
       - name: Download Rules
         id: update
         run: |
-          curl -O https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt
-          curl -O https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt
+          curl -O --output-dir ./rules https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt
+          curl -O --output-dir ./rules https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt
       
       - name: Format Conversion
         run: |
           wget https://github.com/MetaCubeX/mihomo/releases/download/v${{env.MIHOMO_VERSION}}/mihomo-linux-amd64-v${{env.MIHOMO_VERSION}}.gz
           gzip -d mihomo-linux-amd64-v${{env.MIHOMO_VERSION}}.gz
           chmod +x mihomo-linux-amd64-v${{env.MIHOMO_VERSION}}
-          ./mihomo-linux-amd64-v${{env.MIHOMO_VERSION}} convert-ruleset domain yaml rules/direct.txt rules/direct.mrs
-          ./mihomo-linux-amd64-v${{env.MIHOMO_VERSION}} convert-ruleset domain yaml rules/gfw.txt rules/gfw.mrs
+          ./mihomo-linux-amd64-v${{env.MIHOMO_VERSION}} convert-ruleset domain yaml ./rules/direct.txt ./rules/direct.mrs
+          ./mihomo-linux-amd64-v${{env.MIHOMO_VERSION}} convert-ruleset domain yaml ./rules/gfw.txt ./rules/gfw.mrs
           rm -rf mihomo*
-          rm -fr rules/*.txt
+          rm -fr ./rules/*.txt
       
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v5
