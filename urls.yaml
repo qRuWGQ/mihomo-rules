@@ -1,0 +1,14 @@
+direct:
+  behavior: "domain"
+  format: "yaml"
+  url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt"
+
+gfw:
+  behavior: "domain"
+  format: "yaml"
+  url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt"
+
+cnip:
+  behavior: "ipcidr"
+  format: "yaml"
+  url: "https://raw.githubusercontent.com/Loyalsoldier/geoip/refs/heads/release/clash/ipcidr/cn.txt"
