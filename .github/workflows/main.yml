@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@main
+        uses: actions/checkout@v4
 
       - name: Install Dependencies
         run: |
@@ -47,6 +47,12 @@ jobs:
           ./main.sh
           rm -rf mihomo-linux-amd64-v${{env.MIHOMO_VERSION}}*
           rm -fr yq
+
+      - name: Checkout Release Branch
+        uses: actions/checkout@v4
+        with:
+          ref: release
+          fetch-depth: 0
       
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v5
