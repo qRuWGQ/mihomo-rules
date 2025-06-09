@@ -52,3 +52,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "auto update"
+          file_pattern: "rules/*"
+          branch: release
+          create_branch: true
