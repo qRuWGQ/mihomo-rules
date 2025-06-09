@@ -12,3 +12,8 @@ cnip:
   behavior: "ipcidr"
   format: "yaml"
   url: "https://raw.githubusercontent.com/Loyalsoldier/geoip/refs/heads/release/clash/ipcidr/cn.txt"
+
+private:
+  behavior: "ipcidr"
+  format: "yaml"
+  url: "https://raw.githubusercontent.com/Loyalsoldier/geoip/refs/heads/release/clash/ipcidr/private.txt"
